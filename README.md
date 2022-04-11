@@ -9,7 +9,7 @@
  <h4>You awake on a spaceship with no memory of who you are or why you're there<h4>
    
 <h1> How to play <h1>
- <h4>You will be given a prompt and must input an integer indiciating how you wish to respond<h4>
+ <h4>You will be given a prompt and must input an integer or character indiciating how you wish to respond<h4>
   
 <h1> In order to run this code<h1>
   <h4>You will first need to:<h4> 
