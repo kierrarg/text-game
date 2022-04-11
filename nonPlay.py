@@ -1,5 +1,6 @@
 import stats as stat
 from stats import Stats
+import fontstyle
 name = ""
 
 class Npc():
@@ -50,4 +51,25 @@ class Npc():
                 else:
                     Stats.statsFuncs()
                     stat.answer = 0
-                    continue           
+                    continue
+#definition of training room tech Sony
+    def sony():
+        name = "Sony:\n"
+        while True:
+            stat.answer = 0
+            while stat.answer == 0:
+                print("You walk over to Sony, and think to yourself")
+                font = fontstyle.apply('For someone who is considered a battle expert, she sure is small', 'italic')
+                print(font)
+                print(name, "'Hey Arie, you hit your head pretty good yesterday, hope it's feeling better'\n[1] Yes I am fine\n[2] Actually I can't remember a single thing")
+                Stats.options()
+                stat.answer = int(input())
+                while stat.answer == 1:
+                    print(name, "'Well that's good, but just in case I'll guide you through your training today")
+                if stat.answer == 2:
+                    print(name, "'Really!? That is quite concerning,\nI would recommend seeing if Gungar has anything that can help jog your memory.\nIt looks like I'll be needing to guide you through training today'")
+                else:
+                    Stats.statsFuncs()
+                    stat.answer = 0
+                    continue
+                        

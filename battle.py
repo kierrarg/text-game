@@ -1,19 +1,14 @@
 import random
 from stats import Stats
 import stats as stat
+import nonPlay as npc
 weapons = ['Sword made of Frautium', 'Spear made of Castrium', 'Laser made of Afralt']
 boost = 0
 
 class Battle():
     #defining the damage boost depending on damage
-    def Boost():
-        for weapons in weapons:
-            if weapons == 'Sword made of Frautium':
-                boost = 10
-            elif weapons == 'Spear made of Castrium':
-                boost = 7
-            else:
-                boost = 13
+    #want to add boost to damage based on weapon choice 
+
     #defining when a player chooses to block
     def Block():
         stat.damage = random.randint(0, 5)
@@ -39,4 +34,14 @@ class Battle():
             stat.damage = random.randint(0, 25)
             stat.health -=  stat.damage
             Stats.damageReceived()
+#class for training scene 
+class Training(Battle):
+    def enterRoom():
+        while True:
+            stat.answer = 0
+            npc.name = "Gungar:\n"
+            while stat.answer == 0:
+                print(npc.name, "'Alright gang, you know the drill\n--Arie, I guess you might not'")
+                print(npc.name, "'Just head over to Sony near that rack of swords, she'll help you out'")
+
     

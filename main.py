@@ -4,7 +4,7 @@ def main():
         print("Welcome to  would you like to play?")
         user = input(">>")
         #string handling
-        if user.lower() == 'y':
+        if user.lower() == 'y' or 'yes':
             Rooms.bedroom()
         else:
             print("See you next time!")

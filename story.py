@@ -3,7 +3,7 @@ from stats import Stats
 import fontstyle
 from nonPlay import Npc
 import nonPlay as npc
-from battle import Battle
+from battle import Training
 
 class Rooms():
 #definition implementing the first room in the game
@@ -64,9 +64,13 @@ class Rooms():
                         font = fontstyle.apply('Astra', 'bold/italic/white')
                         print("The remaining incubators are also filled with people\nEach of them containing a plaque referecing this woman named", font)
                         font = fontstyle.apply('Long live our queen...', 'bold/italic/white')
+                        print(font)
                         font = fontstyle.apply('Gone but never forgotten', 'bold/italic/white')
+                        print(font)
                         font = fontstyle.apply('We will take back what was ours in her name', 'bold/italic/white')
+                        print(font)
                         font = fontstyle.apply('A victim of war', 'bold/italic/white')
+                        print(font)
                         print("War!? What war?")
                         print("You continue down the hallway until you reach a door\nYou notice that the door is unlocked") 
 
@@ -100,11 +104,14 @@ class Rooms():
                 Npc.gungarCaf()
               #  npc.name = "Gungar:"
                 print(npc.name, "'Let's do one last training session before heading out to Vide")
-                Battle.dodge()
-
-                
-                
-
-
+                Rooms.training()
+#implementing training room    
+    def training():
+        while True:
+            stat.answer = 0
+            while stat.answer == 0:
+                print("...\n...")
+                print("You follow Gungar and the rest of the crew through a locked white door,\nyou go down a long skinny hallway\nthe walls and floor are bright white.\nYou go through a heavy black door\n")
+                Training.enterRoom()
 
             exit()
