@@ -113,5 +113,12 @@ class Rooms():
                 print("...\n...")
                 print("You follow Gungar and the rest of the crew through a locked white door,\nyou go down a long skinny hallway\nthe walls and floor are bright white.\nYou go through a heavy black door\n")
                 Training.enterRoom()
+                Rooms.ship()
 
-            exit()
+#implementing spaceship scene
+    def ship():
+        while True:
+            stat.answer = 0
+            while stat.answer == 0:
+                print("\n\n\n\n\nSPACESHIPSSSSSn\n\n\n\n\n")
+                exit()

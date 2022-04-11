@@ -66,8 +66,10 @@ class Npc():
                 stat.answer = int(input())
                 while stat.answer == 1:
                     print(name, "'Well that's good, but just in case I'll guide you through your training today")
+                    return None
                 if stat.answer == 2:
                     print(name, "'Really!? That is quite concerning,\nI would recommend seeing if Gungar has anything that can help jog your memory.\nIt looks like I'll be needing to guide you through training today'")
+                    return None
                 else:
                     Stats.statsFuncs()
                     stat.answer = 0
