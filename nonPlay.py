@@ -1,8 +1,8 @@
 import stats as stat
 from stats import Stats
+name = ""
 
 class Npc():
-    name = ""
     #defining first npc presented
     def gungarCaf():
         name = "Gungar:\n"
@@ -17,3 +17,37 @@ class Npc():
                     print(name, "'Alright crew, it's time to head back to the stadium'\n'The travel ship leaves for the Alnorn Spaceport of Vide at midnight and we still have much work to do'\n[1] 'The what of what?'\n[2] Continue eating without saying a word")
                     Stats.options()
                     stat.answer = int(input())
+                    while stat.answer == 1:
+                        print(name, "'Wow, you must have hit your head pretty good during training last night'\n'Tonight we are flying to the planet Vide where we will be meeting with the Videan ambassador Centri to disucss our plans to attack Gelni'\n'Ah you clearly don't remember, here take this'")
+                        stat.inventory.append("diary")
+#                        print(stat.inventory[1])
+                        Stats.addInv(1)
+                        return None
+                    if stat.answer == 2:
+                        print(name, "'Alright team, tonight we are flying to the planet Vide where we will be meeting with the Videan ambassador Centri to disucss our plans to attack Gelni'\n'Arien, it's incredibly important that you have your script memorized'")       
+                        print("Everyone around the table is looking at you, am I Arien?\nMore importantly, how could I forget my own name")
+                        return None   
+                    else:
+                        Stats.statsFuncs()
+                        stat.answer = 1
+                        continue        
+                if stat.answer == 2:
+                    print(name, "'You really don't remember me?'\n'I am Gungar, your space captain'\n'You must have hit your head pretty good during training last night'\n[1] 'Training? What are we training for'\n[2] 'Yeah, I guess I must have'")
+                    Stats.options()
+                    stat.answer = int(input())
+                    while stat.answer == 1:
+                        print(name, "'Ah you clearly don't remember, here take this'") 
+                        stat.inventory.append("diary")
+                        Stats.addInv()
+                        return None
+                    if stat.answer == 2:
+                        print(name, "'I'm sure you'll be fine, your memory should come back soon enough.'\n'All right crew, it time to prepare for our trip to Vide where we will be meeting with the Videan ambassador Centri.")
+                        return None
+                    else:
+                        Stats.statsFuncs()
+                        stat.answer = 2
+                        continue
+                else:
+                    Stats.statsFuncs()
+                    stat.answer = 0
+                    continue           

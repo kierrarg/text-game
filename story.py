@@ -2,6 +2,8 @@ import stats as stat
 from stats import Stats
 import fontstyle
 from nonPlay import Npc
+import nonPlay as npc
+from battle import Battle
 
 class Rooms():
 #definition implementing the first room in the game
@@ -11,7 +13,7 @@ class Rooms():
             while stat.answer == 0:
                 print("\nYou awake in a dark room with no idea how you got there.\n")
                 print("You feel around and feel a flashlight.\n")
-                Stats.addInv()
+                Stats.addInv(0)
                 print("Do you wish to:\n[1] Turn on the flashlight\n[2] Stumble around in the dark")
                 Stats.options()
                 stat.answer = int(input())
@@ -96,6 +98,13 @@ class Rooms():
                 print("...\n...")
                 print("Behind the door you see a stark white room full of people wearing all black uniforms, \nthe contrast is blinding\nThey are all huddled around a tall man of African descent\nHe is wearing a white uniform, his chest covered in medalions\nOn his face you see a futuristic looking pair of glasses which are emitting a hologram onto the table in front of him")
                 Npc.gungarCaf()
+              #  npc.name = "Gungar:"
+                print(npc.name, "'Let's do one last training session before heading out to Vide")
+                Battle.dodge()
+
+                
+                
+
 
 
             exit()
