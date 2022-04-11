@@ -12,7 +12,17 @@
  <h4>You will be given a prompt and must input an integer indiciating how you wish to respond<h4>
   
 <h1> In order to run this code<h1>
-  <h4>You will first need to pip install fontstyle,<h4>
-  <h4>once you have fonstyle installed you should be able to run the program as normal<h4>
+  <h4>You will first need to:<h4> 
+   <pre class="line-numbers">
+   <code class="language-css">
+      - pip install fontstyle
+   </code>
+</pre>
+  <h4>once you have fonstyle installed you should be able to run the program as normal from the<h4> 
+     <pre class="line-numbers">
+   <code class="language-css">
+      main.py
+   </code>
+</pre>  
  
 
