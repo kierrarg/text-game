@@ -119,6 +119,41 @@ class Rooms():
     def ship():
         while True:
             stat.answer = 0
+            npc.name = ("Gungar:\n")
+            print("You follow the crew into a large garage behind the training facility,\nit is stocked full of various spaceships")
+            print(npc.name, "'We'll be boarding onto the ISS Starfall'\nHe points over to a 500 square meters matte black spaceship")
+            print(npc.name, "'You guys should get some rest,\nit will be approximately ten hours before we arrive at the Videan spaceport'")
             while stat.answer == 0:
-                print("\n\n\n\n\nSPACESHIPSSSSSn\n\n\n\n\n")
-                exit()
+                print("[1] Get some rest\n[2] Stay awake for a bit")
+                Stats.options()
+                stat.answer = int(input())
+                if stat.answer == 1:
+                    #cut to videan scene
+                    Rooms.vide()
+                elif stat.answer == 2:
+                    #give option to look around and read diary 
+                    Rooms.shipDiary()
+                else:
+                    Stats.statsFuncs()
+                    stat.answer = 0
+                    continue
+    
+    def shipDiary():
+        while True:
+            stat.answer = 0
+            while stat.answer == 0:
+                print("You have about 10 hours to kill, should you:\n[1] Wander around the ship\n[2] Read the diary Gungar gave you")
+                Stats.options()
+                stat.answer = int(input())
+                if stat.answer == 1:
+                    #prompt conversation with gungar, conversation if dependant on whether or not you have read the diary
+                elif stat.answer == 2:
+                    Stats.diaryRead()
+                else:
+                    Stats.statsFuncs()
+                    stat.answer == 0
+                    continue
+
+#implementing the spaceship landing and meeting with the videan ambassador
+    def vide():
+        print("Ship landed lol")

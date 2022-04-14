@@ -39,7 +39,7 @@ class Npc():
                     while stat.answer == 1:
                         print(name, "'Ah you clearly don't remember, here take this'") 
                         stat.inventory.append("diary")
-                        Stats.addInv()
+                        Stats.addInv(1)
                         return None
                     if stat.answer == 2:
                         print(name, "'I'm sure you'll be fine, your memory should come back soon enough.'\n'All right crew, it time to prepare for our trip to Vide where we will be meeting with the Videan ambassador Centri.")
