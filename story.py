@@ -103,7 +103,7 @@ class Rooms():
                 print("Behind the door you see a stark white room full of people wearing all black uniforms, \nthe contrast is blinding\nThey are all huddled around a tall man of African descent\nHe is wearing a white uniform, his chest covered in medalions\nOn his face you see a futuristic looking pair of glasses which are emitting a hologram onto the table in front of him")
                 Npc.gungarCaf()
               #  npc.name = "Gungar:"
-                print(npc.name, "'Let's do one last training session before heading out to Vide")
+                print(npc.name[0], "'Let's do one last training session before heading out to Vide")
                 Rooms.training()
 #implementing training room    
     def training():
@@ -119,10 +119,9 @@ class Rooms():
     def ship():
         while True:
             stat.answer = 0
-            npc.name = ("Gungar:\n")
             print("You follow the crew into a large garage behind the training facility,\nit is stocked full of various spaceships")
-            print(npc.name, "'We'll be boarding onto the ISS Starfall'\nHe points over to a 500 square meters matte black spaceship")
-            print(npc.name, "'You guys should get some rest,\nit will be approximately ten hours before we arrive at the Videan spaceport'")
+            print(npc.name[0], "'We'll be boarding onto the ISS Starfall'\nHe points over to a 500 square meters matte black spaceship")
+            print(npc.name[0], "'You guys should get some rest,\nit will be approximately ten hours before we arrive at the Videan spaceport'")
             while stat.answer == 0:
                 print("[1] Get some rest\n[2] Stay awake for a bit")
                 Stats.options()
@@ -147,30 +146,40 @@ class Rooms():
                 stat.answer = int(input())
                 if stat.answer == 1:
                     #prompt conversation with gungar, conversation if dependant on whether or not you have read the diary
-                    npc.name = ("Gungar:\n")
                     if Stats.diary == True:
                         print("You wander around the ship for a bit,\nthe walls and floors are stark white with matte black furnishings.\nIn the living room area you notice Gungar sitting alone on the couch staring out the window.")
                         print("'Hey Gungar, I read the diary'")
-                        print(npc.name, "'I'm glad you did, it was your mothers. In the end she married Keithua and has been his slave ever since.\nWhen I returned I told our people that she had died the people immediately wanted to avenge her death.\nI told them that she's long gone and not going anywhere, it's harsh but it's true.\nIf we immediately went back into war we never would've stood a fighting chance, now we do.'")
-                        print(npc.name, "'I'm sorry I never told you, but you were so young\nI'm proud of the woman you have become and I am certain that with your help we can save your mother.'")
-                        print("You sit there and think about what Gungar had said and in your thought you begin to drift away and fall asleep")
+                        Npc.gungarShipdiary()
                         Rooms.vide()
                         
                     else: 
                         #if player has not read diary
                         print("You wander around the ship for a bit,\nthe walls and floors are stark white with matte black furnishings.\nIn the living room area you notice Gungar sitting alone on the couch staring out the window.")
-                        print(npc.name, "'Couldn't sleep hey? Neither could I. If it's not too much trouble,\nwould you mind keeping me company while we wait for the flight to be done?'")
-                        print(npc.name, "'I'm not sure if you remember anything yet,\nbut when the Gelnian army killed our queen Astra the people immediately wanted to avenge her death.\nI told them that she's long gone and not going anywhere, it's harsh but it's true.\nIf we immediately went back into war we never would've stood a fighting chance, now we do.'")
-                        print("You sit there and think about what Gungar had said and in your thought you begin to drift away and fall asleep")
+                        Npc.gungarShipnoDie()
                         Rooms.vide()
                 elif stat.answer == 2:
                     Stats.diaryRead()
                 else:
                     Stats.statsFuncs()
-                    stat.answer == 0
+                    stat.answer = 0
                     continue
 
 #implementing the spaceship landing and meeting with the videan ambassador
     def vide():
-        print("Ship landed lol")
-        exit()
+        while True:
+            stat.answer = 0
+            while stat.answer == 0:
+                print("You awake hours later to a rocky landing")
+                print(npc.name[0], "'Alright crew, we are going straight to our meeting with the Videan ambassador.\nArien do you want to join me in this meeting or prepare for battle with the rest of the crew?'\n[1] 'I'll join you'\n[2] 'I'd rather prepare for battle'")
+                Stats.options()
+                stat.answer = int(input())
+                if stat.answer == 1:
+                    #meeting npc function
+                    Npc.centriMeeting()
+                elif stat.answer == 2: 
+                    #training npc function
+                    print("BOOOOPP BAPP")
+                else: 
+                    Stats.statsFuncs()
+                    stat.answer = 0
+                    continue

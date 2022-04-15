@@ -58,18 +58,16 @@ class Battle():
 class Training(Battle):
     def enterRoom():
         while True:
-            npc.name = ("Gungar:\n")
-            print(npc.name, "'Alright gang, you know the drill\n--Arie, I guess you might not'")
+            print(npc.name[0], "'Alright gang, you know the drill\n--Arie, I guess you might not'")
             print(npc.name, "'Just head over to Sony near that rack of swords, she'll help you out'")
             Npc.sony()
-            npc.name = ("Sony:\n")
-            print(npc.name, "'Now let's practice your fighting, lets fight the bot in front of us.'")
+            print(npc.name[1], "'Now let's practice your fighting, lets fight the bot in front of us.'")
             while stat.nonPlayHealth > 0:
                 Battle.battleOp()
                 Battle.attackMethod = input(">>")
                 Battle.checkMethod()
                 if stat.nonPlayHealth <= 0: 
-                    print(npc.name, "'You were always a natural, would you like to train again?\n[1] Yes\n[2] No")
+                    print(npc.name[1], "'You were always a natural, would you like to train again?\n[1] Yes\n[2] No")
                     stat.answer = int(input())
                     if stat.answer == 1:
                         stat.nonPlayHealth = 100
@@ -81,16 +79,14 @@ class Training(Battle):
         
     def afterTraining():
         while True:
-            npc.name = ("Sony:\n")
-            print(npc.name, "'Now, when you're on the battle field it is imperative that you stay alive,\ntake these health shots and use them to replenish your health'")
+            print(npc.name[1], "'Now, when you're on the battle field it is imperative that you stay alive,\ntake these health shots and use them to replenish your health'")
             stat.inventory.append("healthshot")
             stat.inventory.append("healthshot")
             stat.inventory.append("healthshot")
             Stats.addInv(2)
             stat.answer = 0
             while stat.answer == 0:
-                npc.name = ("Gungar:\n")
-                print(npc.name, "'Alright crew, this was our last training!\nIt is time to board the ship and travel to Vide'\nThe crew and yourself head towards Gungar\n[1] Let's go!")
+                print(npc.name[0], "'Alright crew, this was our last training!\nIt is time to board the ship and travel to Vide'\nThe crew and yourself head towards Gungar\n[1] Let's go!")
                 Stats.options()
                 stat.answer = int(input())
                 if stat.answer == 1:
