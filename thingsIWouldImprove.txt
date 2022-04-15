@@ -1,1 +1,7 @@
+things I need to do:
+implement mini game for prepare for battle selection
+implement meeting with centri
+
+
+
 1. ascii art and text

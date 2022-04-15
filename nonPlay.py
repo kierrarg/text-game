@@ -1,7 +1,7 @@
 import stats as stat
 from stats import Stats
 import fontstyle
-name = ["Gungar:\n", "Siri:\n", "Centri:\n"]
+name = ["Gungar:\n", "Siri:\n", "Centri:\n", "Rise:\n", "Evip:\n"]
 
 class Npc():
     #defining first npc presented
@@ -99,9 +99,14 @@ class Npc():
                     Stats.options()
                     stat.answer = int(input())
                     while stat.answer == 1:
-                        print("TEEHEE stat answer is 1")
+                        print(name[2], "'Well I believe it is time to begin discussing our plans'")
+                        print("You notice Centri fidgetting with her fingers and shaking as\nshe begins to extend her arm gesturing to the table in the center of the room.")
+                        return None
                     if stat.answer == 2:
-                        print("UGHHHHH stat answer is 2")
+                        print(name[0], "'She's right Centri, are you all right?'")
+                        print(name[2], "'Yes I am fine, I believe it is time to begin discussing our plans'")
+                        print("You notice Centri fidgetting with her fingers and shaking as\nshe begins to extend her arm gesturing to the table in the center of the room.")
+                        return None
                     else:
                         Stats.statsFuncs()
                         stat.answer = 0
@@ -113,9 +118,23 @@ class Npc():
                     Stats.options()
                     stat.answer = int(input())
                     while stat.answer == 1:
-                        print("NO DIARYV STAT ANSWR IS 1")
+                        print(name[2], "'Well with that all said and done, I believe it is time to discuss our plans'")
+                        print("Centri smiles and extends her arm gesturing to the table in the center of the room.")
+                        return None
                     else:
                         Stats.statsFuncs()
                         stat.answer = 0
                         continue
-        exit()
+    
+    def riseEvip():
+        while True:
+            print(name[0], "'Sounds good, just follow Rise and she'll get you set up'")
+            print("You see a small woman waving at you, from looking at her you can immediately tell that she is related to Siri")
+            stat.answer = 0
+            while stat.answer == 0:
+                print(name[3], "'Follow me'")
+                print("You follow Rise outside and begin to walk through a long field\nyou see a group of people surrounded by weapons")
+                print(name[3], "'Hey Evip, this is Arien. She'll be with us today'")
+                print(name[4], "'Hey Arien, welcome to the squad'")
+                print("Evip is a shorter man, though an adult he would easily be mistaken for a child\n[1] 'It's nice to meet you'\n[2] 'What exactly are we doing?'")
+                

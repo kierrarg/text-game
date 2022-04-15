@@ -150,13 +150,13 @@ class Rooms():
                         print("You wander around the ship for a bit,\nthe walls and floors are stark white with matte black furnishings.\nIn the living room area you notice Gungar sitting alone on the couch staring out the window.")
                         print("'Hey Gungar, I read the diary'")
                         Npc.gungarShipdiary()
-                        Rooms.vide()
+                        Rooms.videLanding()
                         
                     else: 
                         #if player has not read diary
                         print("You wander around the ship for a bit,\nthe walls and floors are stark white with matte black furnishings.\nIn the living room area you notice Gungar sitting alone on the couch staring out the window.")
                         Npc.gungarShipnoDie()
-                        Rooms.vide()
+                        Rooms.videLanding()
                 elif stat.answer == 2:
                     Stats.diaryRead()
                 else:
@@ -165,7 +165,7 @@ class Rooms():
                     continue
 
 #implementing the spaceship landing and meeting with the videan ambassador
-    def vide():
+    def videLanding():
         while True:
             stat.answer = 0
             while stat.answer == 0:
@@ -176,10 +176,16 @@ class Rooms():
                 if stat.answer == 1:
                     #meeting npc function
                     Npc.centriMeeting()
+                    Rooms.videMeet()
                 elif stat.answer == 2: 
                     #training npc function
-                    print("BOOOOPP BAPP")
+                    Npc.riseEvip()
                 else: 
                     Stats.statsFuncs()
                     stat.answer = 0
                     continue
+
+    def videMeet():
+        while True:
+            print("MEETTTINNNGGGG")
+            exit()  
