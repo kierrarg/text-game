@@ -98,10 +98,4 @@ class Training(Battle):
                 else:
                     Stats.statsFuncs()
                     stat.answer = 0
-                    continue
-
-
-                
-            
-
-    
+                    continue 

@@ -147,6 +147,22 @@ class Rooms():
                 stat.answer = int(input())
                 if stat.answer == 1:
                     #prompt conversation with gungar, conversation if dependant on whether or not you have read the diary
+                    npc.name = ("Gungar:\n")
+                    if Stats.diary == True:
+                        print("You wander around the ship for a bit,\nthe walls and floors are stark white with matte black furnishings.\nIn the living room area you notice Gungar sitting alone on the couch staring out the window.")
+                        print("'Hey Gungar, I read the diary'")
+                        print(npc.name, "'I'm glad you did, it was your mothers. In the end she married Keithua and has been his slave ever since.\nWhen I returned I told our people that she had died the people immediately wanted to avenge her death.\nI told them that she's long gone and not going anywhere, it's harsh but it's true.\nIf we immediately went back into war we never would've stood a fighting chance, now we do.'")
+                        print(npc.name, "'I'm sorry I never told you, but you were so young\nI'm proud of the woman you have become and I am certain that with your help we can save your mother.'")
+                        print("You sit there and think about what Gungar had said and in your thought you begin to drift away and fall asleep")
+                        Rooms.vide()
+                        
+                    else: 
+                        #if player has not read diary
+                        print("You wander around the ship for a bit,\nthe walls and floors are stark white with matte black furnishings.\nIn the living room area you notice Gungar sitting alone on the couch staring out the window.")
+                        print(npc.name, "'Couldn't sleep hey? Neither could I. If it's not too much trouble,\nwould you mind keeping me company while we wait for the flight to be done?'")
+                        print(npc.name, "'I'm not sure if you remember anything yet,\nbut when the Gelnian army killed our queen Astra the people immediately wanted to avenge her death.\nI told them that she's long gone and not going anywhere, it's harsh but it's true.\nIf we immediately went back into war we never would've stood a fighting chance, now we do.'")
+                        print("You sit there and think about what Gungar had said and in your thought you begin to drift away and fall asleep")
+                        Rooms.vide()
                 elif stat.answer == 2:
                     Stats.diaryRead()
                 else:
@@ -157,3 +173,4 @@ class Rooms():
 #implementing the spaceship landing and meeting with the videan ambassador
     def vide():
         print("Ship landed lol")
+        exit()
