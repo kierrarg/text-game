@@ -8,6 +8,7 @@ damage = 0
 
 class Stats():
     diary = False
+    confession = False
     def invalid():
         print("Invalid entry\nPlease try again:\n")
    
@@ -71,4 +72,3 @@ class Stats():
                     Stats.statsFuncs()
                     answer = 0
                     continue
-

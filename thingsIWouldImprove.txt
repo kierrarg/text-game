@@ -1,7 +1,9 @@
 things I need to do:
-implement mini game for prepare for battle selection
+finish implementing help evip
 implement meeting with centri
 
 
-
+Things to add/change: 
 1. ascii art and text
+2. convert input to string not int
+3. add help idea for ship minigame

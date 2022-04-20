@@ -1,5 +1,7 @@
 import stats as stat
 from stats import Stats
+import minigames as mini
+from minigames import MiniGame
 import fontstyle
 name = ["Gungar:\n", "Siri:\n", "Centri:\n", "Rise:\n", "Evip:\n"]
 
@@ -137,4 +139,70 @@ class Npc():
                 print(name[3], "'Hey Evip, this is Arien. She'll be with us today'")
                 print(name[4], "'Hey Arien, welcome to the squad'")
                 print("Evip is a shorter man, though an adult he would easily be mistaken for a child\n[1] 'It's nice to meet you'\n[2] 'What exactly are we doing?'")
+                Stats.options()
+                stat.answer = int(input())
+                while stat.answer == 1 or 2:
+                    print(name[4], "'Later tonight we will board the ships and head out the Gelni, it is imperative that the weapons are prepared and boarded onto the plane'")
+                    if Stats.diary == True:
+                        print("Evip frantically continues working but appears thrown off,\nhe continues turning around and looking at you\n[1] 'Evip seems the be acting odd'\n[2] 'Well what can I do to help?'")
+                        stat.answer = int(input())
+                        if stat.answer == 1:
+                            print(name[3], "'Yes well he's very involved in the Videan diplomatic affairs,\nthe success of this war is very important to him'\nRise is also acting strange, they are clearly keeping something hidden.")
+                            print(name[3], "'Arien would you like to help me fuel the ships, or help Evip pack up the weapons'\n[1] Help Rise\n[2] Help Evip") 
+                            stat.answer = int(input())
+                            if stat.answer == 1:
+                                Npc.rise()  
+                        elif stat.answer == 2:
+                            print(name[3], "'Arien would you like to help me fuel the ships, or help Evip pack up the weapons'\n[1] Help Rise\n[2] Help Evip")  
+                            stat.answer = int(input())
+                            if stat.answer == 1:
+                                Npc.rise()
+                        else: 
+                            Stats.statsFuncs()
+                            stat.answer = 1
+                            continue  
+                    else: 
+                        print("Evip frantically continues working, it is clear that we are all in a hurry to prepare for battle.")
+                        print(name[3], "'Arien would you like to help me fuel the ships, or help Evip pack up the weapons'\n[1] Help Rise\n[2] Help Evip")
+                        stat.answer = int(input())
+                        if stat.answer == 1:
+                            Npc.rise()
+                else:
+                    Stats.statsFuncs()
+                    stat.answer = 0
+                    continue
+
+    def rise():
+        while True:
+            MiniGame.fuelShip()
+            print(name[3], "'Look at that, the ships are all fueled up, thanks for your help Arien'")
+            if Stats.diary == True:
+                print("Rise looks around to see if anyone is listening")
+                print(name[3], "'Between the two of us, though I am loyal to the nation of Vide. I grew up in the same nation as you'\nshe leans over and whispers into your ears")
+                print(name[3], "'I have reason to believe Centri is behind the betrayal of our home all those years ago.\nI do not think this war will play out how you guys are expecting it to.\nYou cannot trust the Videans'")
+                Stats.confession = True
+                Npc.readyToGo()
+            else:
+                Npc.readyToGo()
+    
+    def evip():
+        while True:
+            stat.answer = 0
+            while stat.answer == 0:
+                print(name[4], "'I don't know about you but I find loading the weapons onto the ship incredibly boring\nWhat do you say we make this a little more entertaining and we try doing some riddles to make this a little more interesting?'\n[1] 'Sounds like a great idea'\n[2] 'Would it be alright if we just loaded the ship in silence?'")
+                Stats.options()
+                stat.answer = input(">>")
+                if stat.answer == "1":
+                    #call riddle function in mini game <-- still need to make
+                    print("Need to make riddle mini game")
+                elif stat.answer == "2":
+                    print(name[4], "'That's fair, well you can carry those smaller bags over there and I'll load up these larger ones'")
+                else:
+                    Stats.statsFuncs()
+                    stat.answer == 0
+                    continue
+
+
+    def readyToGo():
+        print("time to leave lol")
                 
