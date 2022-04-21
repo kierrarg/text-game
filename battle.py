@@ -69,7 +69,7 @@ class Training(Battle):
                 if stat.nonPlayHealth <= 0: 
                     print(npc.name[1], "'You were always a natural, would you like to train again?\n[1] Yes\n[2] No")
                     stat.answer = int(input())
-                    if stat.answer == 1:
+                    if stat.answer == "1":
                         stat.nonPlayHealth = 100
                         stat.health = 100
                     else:
@@ -84,14 +84,14 @@ class Training(Battle):
             stat.inventory.append("healthshot")
             stat.inventory.append("healthshot")
             Stats.addInv(2)
-            stat.answer = 0
-            while stat.answer == 0:
+            stat.answer = "0"
+            while stat.answer == "0":
                 print(npc.name[0], "'Alright crew, this was our last training!\nIt is time to board the ship and travel to Vide'\nThe crew and yourself head towards Gungar\n[1] Let's go!")
                 Stats.options()
-                stat.answer = int(input())
-                if stat.answer == 1:
+                stat.answer = input(">>")
+                if stat.answer == "1":
                     return None
                 else:
                     Stats.statsFuncs()
-                    stat.answer = 0
+                    stat.answer = "0"
                     continue 

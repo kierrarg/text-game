@@ -1,9 +1,14 @@
 things I need to do:
-finish implementing help evip
-implement meeting with centri
+-finish implementing help evip
+-implement meeting with centri
+-talk with gungar about traitors 
+-agree to meet with another nation instead of Vide for war
+-steal videan weapons and ships and go to other nation
+-meet with other nation and plan for war
+-go to war
 
 
 Things to add/change: 
 1. ascii art and text
-2. convert input to string not int
-3. add help idea for ship minigame
+https://ascii-generator.site/
+2. add help idea for ship minigame

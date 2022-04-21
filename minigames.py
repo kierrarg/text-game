@@ -60,3 +60,37 @@ class MiniGame():
         print("The STS Rampart needs 450L of fuel")
         print("The SSE Harmony needs 380L of fuel")
         print("The SSE Eagle needs 290L of fuel")
+    
+
+    def riddlesPrint():
+        while True:
+                print("At night they come without being fetched,\nAnd by day they are lost without being stolen.")
+                stat.answer = input(">>")
+                while stat.answer.lower() == 'stars':
+                    print("What is a spaceman's favorite chocolate?")
+                    stat.answer = input(">>")
+                    while stat.answer.lower() == 'a mars bar' or stat.answer.lower() == 'marsbar':
+                        print("Why did the cow go to outer space?")
+                        stat.answer = input(">>")
+                        while stat.answer.lower() == 'milkyway' or stat.answer.lower() == 'to visit the milky way':
+                            print("What is an astronauts favorite key on the keyboard?")
+                            stat.answer = input(">>")
+                            while stat.answer.lower() == 'space bar' or stat.answer.lower() == 'the space bar':
+                                return False
+                            else:
+                                print("Try again")
+                                stat.answer = "milkyway"
+                                continue
+                        else:
+                            print("Try again")
+                            stat.answer = "marsbar"
+                            continue
+                    else:
+                        print("Try again")
+                        stat.answer = "stars"
+                        continue
+
+                else:
+                    print("Try again")
+                    continue
+                    
