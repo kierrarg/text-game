@@ -9,6 +9,7 @@ damage = 0
 class Stats():
     diary = False
     confession = False
+    rom = False
     def invalid():
         print("Invalid entry\nPlease try again:\n")
    

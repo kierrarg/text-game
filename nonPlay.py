@@ -213,7 +213,6 @@ class Npc():
                 Stats.options()
                 stat.answer = input(">>")
                 if stat.answer == "1":
-                    #call riddle function in mini game <-- still need to make
                     MiniGame.riddlesPrint()
                     print(name[4], "'Now that was a fun way to pass the time'")
                     return None
@@ -229,11 +228,13 @@ class Npc():
     
     def gungarMeet():
         while True:
-            print(name[0], "'If possible, Arien has a list of questions we would all like to ask\n")
+            print(name[0], "'If possible, Arien has a list of questions she would like to ask\n")
             if Stats.diary == True:
                 print("Centri looks like a deer caught in headlights, she quickly turns her head to you and chokes on the words 'yes that would be fine'.")
+                MiniGame.questions()
                 return None
             else:
                 print("Centri chokes for a minute\n", name[2], "'Yes that would be fine'")
+                MiniGame.questions()
                 return None
      

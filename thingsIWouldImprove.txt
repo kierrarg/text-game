@@ -1,11 +1,19 @@
 things I need to do:
--finish implementing help evip
 -implement meeting with centri
--talk with gungar about traitors 
--agree to meet with another nation instead of Vide for war
--steal videan weapons and ships and go to other nation
--meet with other nation and plan for war
--go to war
+
+
+different endings:
+- if diary is not read you go to war and videans betray you, everyone dies 
+- if diary is true and confession is false
+    - gungar tries to tell you war is a bad idea 
+    - you go anyways (a command being that you're the royal heir)
+    - you barely make it, your mother is murdered in the process
+- if diary and confession are true
+    -talk with gungar about traitors 
+    -agree to meet with another nation instead of Vide for war
+    -steal videan weapons and ships and go to other nation
+    -meet with other nation and plan for war
+    -go to war
 
 
 Things to add/change: 

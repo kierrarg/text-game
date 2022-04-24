@@ -201,12 +201,64 @@ class Rooms():
                 print(npc.name[2], "'Before we begin does anyone need to take a quick break?'\n[1]'Could I use the washroom?'\n[2] 'No I'm good to start'")
                 Stats.options()
                 stat.answer = input(">>")
-                if stat.answer == "1":
+                while stat.answer == "1":
                     print("Centri nods, you get up and walk out of the meeting room towards the washroom.\nAs you walk towards the washroom you hear two men talking as they walk through the building\n[1] Go the the washroom and get back to the meeting\n[2] Listen to their conversation")
-                elif stat.answer == "2":
+                    stat.answer = input(">>")
+                    if stat.answer == "1":
+                        #continue on to meeting
+                        Npc.gungarMeet()
+                        Rooms.leaveMeeting()
+                    elif stat.answer == "2":
+                        print("Man 1:\n'Astra was foolish to trust us then, and Gungar is foolish to trust us now'")
+                        print("Man 2:\n'Soon Vide will be the economic superpower'")
+                        Stats.confession = True
+                        if Stats.diary == True:
+                            print("'It appears we cannot trust Vide, were they the traitors my mother mentionned in her diary entries?'")
+                            print("You hurry back to the meeting")
+                            Npc.gungarMeet()
+                        else:
+                            print("What could they be talking about?\nYou hurry back to the meeting")
+                            Npc.gungarMeet()
+                            Rooms.leaveMeeting()
+                    else:
+                        Stats.statsFuncs()
+                        stat.answer = "1"
+                        continue
+                if stat.answer == "2":
                     print("Every one else nods in agreement.")
                     Npc.gungarMeet()
+                    Rooms.leaveMeeting()
                 else:
                     Stats.statsFuncs()
                     stat.answer = "0"
                     continue
+    
+    def leaveMeeting():
+        while True:
+            stat.answer = 0
+            while stat.answer == 0:
+                print(npc.name[2], "'Well I think this went well, shall I show you out so we can board the ships?'")
+                print("You and the rest stand and begin to walk out the meeting room,\nGungar looks at you a nudges his head indicating he wishes to have a word with you.")
+                print(npc.name[0], "'One moment Centri'")
+                print("You both wander off away from the crowd.")
+                if Stats.diary == True and Stats.confession == True:
+                    print(npc.name[0], "'I'm sure by now you have also figured out that we cannot trust the Videans.\nI have arranged for a separate ship to take us to the nation of Riomia where your aunt resides.\nShe has agreed to loan us her army in the event the Videans try to betray us during battle'\n[1] Yes\n[2] No")
+                    Stats.options()
+                    stat.answer == input(">>")
+                    if stat.answer == "1":
+                        Stats.rom = True
+                        Rooms.riomia()
+                    elif stat.answer == "2":
+                        Rooms.enRouteWar()
+                    else:
+                        Stats.statsFuncs()
+                        stat.answer = "0"
+                        continue
+    
+    def riomia():
+        print("GOING to riomia lolololol")
+
+    def enRouteWar():
+        print("going to war teehee")
+
+
