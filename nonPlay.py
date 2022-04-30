@@ -3,7 +3,8 @@ from stats import Stats
 import minigames as mini
 from minigames import MiniGame
 import fontstyle
-name = ["Gungar:\n", "Siri:\n", "Centri:\n", "Rise:\n", "Evip:\n"]
+import battle as battle
+name = ["Gungar:\n", "Siri:\n", "Centri:\n", "Rise:\n", "Evip:\n", "Skye:\n"]
 
 class Npc():
     #defining first npc presented
@@ -237,4 +238,26 @@ class Npc():
                 print("Centri chokes for a minute\n", name[2], "'Yes that would be fine'")
                 MiniGame.questions()
                 return None
+    
+    def skye():
+        while True:
+            stat.answer = "0"
+            while stat.answer == "0":
+                if Stats.diary or Stats.confession == True:
+                    print("You both get into the car")
+                    print(name[5], "'My men are making their way towards Gelni, the two of you will join us there'")
+                    print(name[0], "Arien which weapon would you prefer?\n[1] Sword made of Frautium\n[2] Spear made of Castrium\n[3] Laser made of Afralt")
+                    battle.weapon = input(">>")
+                    for x in battle.weapons:
+                        if battle.weapon == battle.weapons[x]:
+                            print("Skye writes that down on a note pad.")
+                            print("You arrive at a space port and board the main ship.")
+                            print(name[0], "'It's time for war'")
+                            return None
+                        else: 
+                            Stats.statsFuncs()
+                            stat.answer = "0"
+                            continue
+
+
      

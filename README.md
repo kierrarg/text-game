@@ -23,6 +23,11 @@
    <code class="language-css">
       main.py
    </code>
+   <h4>you can also run the program and install requirements using this command<h4>
+      <pre class="line-numbers">
+   <code class="language-css">
+      python3 -m pip install -U -r requirements.txt --user && python3 main.py
+   </code>
 </pre>  
  
 

@@ -3,13 +3,18 @@ from stats import Stats
 import stats as stat
 import nonPlay as npc
 from nonPlay import Npc
-#weapons = ['Sword made of Frautium', 'Spear made of Castrium', 'Laser made of Afralt']
+weapons = ['Sword made of Frautium', 'Spear made of Castrium', 'Laser made of Afralt']
 boost = 0
+weapon = ""
 
 class Battle():
     attackMethod = ""
     #defining the damage boost depending on damage
     #want to add boost to damage based on weapon choice 
+    def boost():
+        print("Must add weapons boost depending on players chosen weapon")
+
+        
 
     #defining when a player chooses to block
     def block():
