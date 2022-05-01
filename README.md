@@ -23,6 +23,7 @@
    <code class="language-css">
       main.py
    </code>
+   </pre>
    <h4>you can also run the program and install requirements using this command<h4>
       <pre class="line-numbers">
    <code class="language-css">
