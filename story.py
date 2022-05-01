@@ -3,14 +3,14 @@ from stats import Stats
 import fontstyle
 from nonPlay import Npc
 import nonPlay as npc
-from battle import Training
-import asci as asci
-from asci import Asci
+import battle as battle
+from battle import Battle, Training
+
+
 
 class Rooms():
 #definition implementing the first room in the game
     def bedroom():
-        Asci.startScene()
         stat.inventory.append("flashlight")
         while True:
             while stat.answer == "0":
@@ -105,8 +105,8 @@ class Rooms():
                 print("...\n...")
                 print("Behind the door you see a stark white room full of people wearing all black uniforms, \nthe contrast is blinding\nThey are all huddled around a tall man of African descent\nHe is wearing a white uniform, his chest covered in medalions\nOn his face you see a futuristic looking pair of glasses which are emitting a hologram onto the table in front of him")
                 Npc.gungarCaf()
-              #  npc.name = "Gungar:"
-                print(npc.name[0], "'Let's do one last training session before heading out to Vide")
+              #  stat.name = "Gungar:"
+                print(stat.name[0], "'Let's do one last training session before heading out to Vide")
                 Rooms.training()
 #implementing training room    
     def training():
@@ -123,8 +123,8 @@ class Rooms():
         while True:
             stat.answer = "0"
             print("You follow the crew into a large garage behind the training facility,\nit is stocked full of various spaceships")
-            print(npc.name[0], "'We'll be boarding onto the ISS Starfall'\nHe points over to a 500 square meters matte black spaceship")
-            print(npc.name[0], "'You guys should get some rest,\nit will be approximately ten hours before we arrive at the Videan spaceport'")
+            print(stat.name[0], "'We'll be boarding onto the ISS Starfall'\nHe points over to a 500 square meters matte black spaceship")
+            print(stat.name[0], "'You guys should get some rest,\nit will be approximately ten hours before we arrive at the Videan spaceport'")
             while stat.answer == "0":
                 print("[1] Get some rest\n[2] Stay awake for a bit")
                 Stats.options()
@@ -173,7 +173,7 @@ class Rooms():
             stat.answer = "0"
             while stat.answer == "0":
                 print("You awake hours later to a rocky landing")
-                print(npc.name[0], "'Alright crew, we are going straight to our meeting with the Videan ambassador.\nArien do you want to join me in this meeting or prepare for battle with the rest of the crew?'\n[1] 'I'll join you'\n[2] 'I'd rather prepare for battle'")
+                print(stat.name[0], "'Alright crew, we are going straight to our meeting with the Videan ambassador.\nArien do you want to join me in this meeting or prepare for battle with the rest of the crew?'\n[1] 'I'll join you'\n[2] 'I'd rather prepare for battle'")
                 Stats.options()
                 stat.answer = input(">>")
                 if stat.answer == "1":
@@ -193,15 +193,29 @@ class Rooms():
         while True:
             stat.answer = "0"
             while stat.answer == "0":
-                print("Teehee")
-                exit()
+                print(stat.name[4], "'Well looks like we're ready to go, we should begin boaring the ships'\nEvips hands begin shaking")
+                print(stat.name[3], "'I agree, it's time for us to go'")
+                if Stats.diary and Stats.confession == True:
+                    print("Evip is clearly nervous,\nRise looks at you and leans into your ear")
+                    print(stat.name[3], "'Go to the subway and meet with Gungar, take the first left and follow the subway signs'\n[1] Do it\n[2] Continue walking with Evip and Rise")
+                    stat.answer = input(">>")
+                    if stat.answer == "1":
+                        print("You sneak away to see Gungar at the subway")
+                        Rooms.riomia()
+                    elif stat.answer == "2":
+                        Rooms.enRouteWar()
+                    else:
+                        Stats.statsFuncs()
+                        stat.answer = "0"
+                        continue
+
 
     def videMeet():
         while True:
             stat.answer = "0"
             while stat.answer == "0":
                 print("You sit down at the table")
-                print(npc.name[2], "'Before we begin does anyone need to take a quick break?'\n[1]'Could I use the washroom?'\n[2] 'No I'm good to start'")
+                print(stat.name[2], "'Before we begin does anyone need to take a quick break?'\n[1]'Could I use the washroom?'\n[2] 'No I'm good to start'")
                 Stats.options()
                 stat.answer = input(">>")
                 while stat.answer == "1":
@@ -240,15 +254,17 @@ class Rooms():
         while True:
             stat.answer = "0"
             while stat.answer == "0":
-                print(npc.name[2], "'Well I think this went well, shall I show you out so we can board the ships?'")
+                print(stat.name[2], "'Well I think this went well, shall I show you out so we can board the ships?'")
                 print("You and the rest stand and begin to walk out the meeting room,\nGungar looks at you a nudges his head indicating he wishes to have a word with you.")
-                print(npc.name[0], "'One moment Centri'")
+                print(stat.name[0], "'One moment Centri'")
                 print("You both wander off away from the crowd.")
                 if Stats.diary == True and Stats.confession == True:
-                    print(npc.name[0], "'I'm sure by now you have also figured out that we cannot trust the Videans.\nI have arranged for a separate ship to take us to the nation of Riomia where your aunt resides.\nShe has agreed to loan us her army in the event the Videans try to betray us during battle. Should we go?'\n[1] 'Yes'\n[2] 'No'")
+                    print(stat.name[0], "'I'm sure by now you have also figured out that we cannot trust the Videans.\nI have arranged for a separate ship to take us to the nation of Riomia where your aunt resides.\nShe has agreed to loan us her army in the event the Videans try to betray us during battle. Should we go?'\n[1] 'Yes'\n[2] 'No'")
                     Stats.options()
                     stat.answer = input(">>")
                     if stat.answer == "1":
+                        print(stat.name[0], "'I agree, follow me'")
+                        print("You and Gungar sneak through the embassy and find yourselves out on the streets, you follow him down to the train station")
                         Stats.rom = True
                         Rooms.riomia()
                     elif stat.answer == "2":
@@ -258,10 +274,12 @@ class Rooms():
                         stat.answer = "0"
                         continue
                 elif Stats.diary == True and Stats.confession == False or Stats.diary == False and Stats.confession == True:
-                    print(npc.name[0], "'I have reason to believe we cannot trust the Videans. \nI have arranged for a separate ship to take us to the nation of Riomia where your aunt resides.\nShe has agreed to loan us her army in the event the Videans try to betray us during battle. Should we go?'\n[1] 'Yes'\n[2] 'No'")
+                    print(stat.name[0], "'I have reason to believe we cannot trust the Videans. \nI have arranged for a separate ship to take us to the nation of Riomia where your aunt resides.\nShe has agreed to loan us her army in the event the Videans try to betray us during battle. Should we go?'\n[1] 'Yes'\n[2] 'No'")
                     Stats.options()
                     stat.answer = input(">>")
                     if stat.answer == "1":
+                        print(stat.name[0], "'I agree, follow me'")
+                        print("You and Gungar sneak through the embassy and find yourselves out on the streets, you follow him down to the train station")
                         Stats.rom = True
                         Rooms.riomia()
                     elif stat.answer == "2":
@@ -271,12 +289,12 @@ class Rooms():
                         stat.answer = "0"
                         continue
                 else:
-                    print(npc.name[0], "'I have arranged for a separate ship to take us to the nation of Riomia where your aunt resides.\nShe has agreed to loan us her army in the event the Videans try to betray us during battle. Should we go?'\n[1] 'Absolutely not'\n[2] 'You're being paranoid, the Videans will not betray us'")
+                    print(stat.name[0], "'I have arranged for a separate ship to take us to the nation of Riomia where your aunt resides.\nShe has agreed to loan us her army in the event the Videans try to betray us during battle. Should we go?'\n[1] 'Absolutely not'\n[2] 'You're being paranoid, the Videans will not betray us'")
                     Stats.options()
                     stat.answer = input(">>")
                     if stat.answer == "1":
-                        print(npc.name[0], "'You do not know the entire story. Believe me, we cannot trust the Videans'")
-                        print(npc.name[2], "'It's time to go guys'")
+                        print(stat.name[0], "'You do not know the entire story. Believe me, we cannot trust the Videans'")
+                        print(stat.name[2], "'It's time to go guys'")
                         Rooms.enRouteWar()
                     elif stat.answer == "2":
                         print("'Maybe I am, anyways lets get on the ship'")
@@ -291,21 +309,25 @@ class Rooms():
         while True:
             stat.answer = "0"
             while stat.answer == "0":
-                print(npc.name[0], "'I agree, follow me'")
-                print("You and Gungar sneak through the embassy and find yourselves out on the streets, you follow him down to the train station")
-                print(npc.name[0], "'You get on this train and get off at the third stop, I'll hop on the next one. Wait for me when you get off'")
-                print("He appears to be in a panic, but so are you.\nIf the Videans are not to be trusted surely they would not be happy to see the two of you have run off.")
-                if Stats.diary or Stats.confession == True:
-                    print("You get on the first train and wait patiently to meet with Gungar\n......")
-                    print("Gungar arrive and you see a matte black space car")
-                    print(npc.name[5], "'We must hurry, we don't have much time'")
-                    Npc.skye()
-                    Rooms.enRouteWar()
+                print(stat.name[0], "'You get on this train and get off at the third stop, I'll hop on the next one. Wait for me when you get off'")
+                print("You get on the first train and wait patiently to meet with Gungar\n......")
+                print("Gungar arrives and you see a matte black space car")
+                print(stat.name[5], "'We must hurry, we don't have much time'")
+                Npc.skye()
+                Rooms.enRouteWar()
 
 
                 
 
     def enRouteWar():
-        print("going to war teehee")
+        while True:
+            stat.answer = "0"
+            while stat.answer == "0":
+                if Stats.rom == False:
+                    print(stat.name[2], "'Arien when we arrive you will be using a", battle.weapons[0], "it is not the strongest weapon but it is all that could be spared'")
+
+
+
+        exit()
 
 

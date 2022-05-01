@@ -5,6 +5,7 @@ nonPlayHealth = 100
 health = 100
 answer = "0"
 damage = 0
+name = ["Gungar:\n", "Siri:\n", "Centri:\n", "Rise:\n", "Evip:\n", "Skye:\n"]
 
 class Stats():
     diary = False
