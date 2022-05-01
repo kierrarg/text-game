@@ -1,4 +1,4 @@
-<h1> Welcome to "insert name here" <h1>
+<h1> Welcome <h1>
  <h4>This is a text-based adventure game/rpg,<h4> 
    <h4>throughout this story you will uncover the story of your character,<h4> 
    <h4>travel to different planets,<h4> 
